@@ -27,11 +27,16 @@ The story for this level is composed of the following beats.
 
 Interact prompts will appear, telling the player each of the basic controls. As the player presses each control function, the prompt will change to the next function.
 
-- PROMPT: "Press W to move forward"
-- PROMPT: "Press S to move backward"
-- PROMPT: "Press A to strafe left"
-- PROMPT: "Press D to strafe right"
-- PROMPT: "Press ESC to open the main menu"
+PROMPT
+> "Press W to move forward"
+>
+> "Press S to move backward"
+>
+> "Press A to strafe left"
+>
+> "Press D to strafe right"
+>
+> "Press ESC to open the main menu"
 
 ### The Accident
 
