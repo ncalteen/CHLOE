@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fe6eb8a291dcb448309d32834c731c, type: 3}
+  m_Name: S3CannedACL
+  m_EditorClassIdentifier: 
+  ID: CannedACL
+  ShortName: Canned ACL
+  LongName: S3 Canned ACL
+  Description: "The canned ACL to apply to the bucket.\r"
+  ResourceInstance: {fileID: 11400000, guid: a60d74d40b7ebf74db63dbb47cde0f4a, type: 2}
+  Required: 0
+  PropertyType: 3
+  UpdateType: 0

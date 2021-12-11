@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fe6eb8a291dcb448309d32834c731c, type: 3}
+  m_Name: S3UseClientRegion
+  m_EditorClassIdentifier: 
+  ID: UseClientRegion
+  ShortName: Use Client Region
+  LongName: Use Client Region
+  Description: If set to true the bucket will be created in the same region as the
+    configuration of the AmazonS3 client. If PutBucketRequest.BucketRegion or PutBucketRequest.BucketRegionName
+    are set they take precedence over this property.
+  ResourceInstance: {fileID: 11400000, guid: a60d74d40b7ebf74db63dbb47cde0f4a, type: 2}
+  Required: 0
+  PropertyType: 2
+  UpdateType: 2

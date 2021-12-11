@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fe6eb8a291dcb448309d32834c731c, type: 3}
+  m_Name: S3ObjectLockEnabledForBucket
+  m_EditorClassIdentifier: 
+  ID: ObjectLockEnabledForBucket
+  ShortName: Object Lock Enabled
+  LongName: S3 Object Lock Enabled
+  Description: With S3 Object Lock, you can store objects using a write-once-read-many
+    (WORM) model. Object Lock can help prevent objects from being deleted or overwritten
+    for a fixed amount of time or indefinitely. You can use Object Lock to help meet
+    regulatory requirements that require WORM storage, or to simply add another layer
+    of protection against object changes and deletion.
+  ResourceInstance: {fileID: 11400000, guid: a60d74d40b7ebf74db63dbb47cde0f4a, type: 2}
+  Required: 0
+  PropertyType: 2
+  UpdateType: 2

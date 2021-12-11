@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf23cda27251d7a4e80c186e25f47460, type: 3}
+  m_Name: Bucket
+  m_EditorClassIdentifier: 
+  ID: Bucket
+  ShortName: Bucket
+  LongName: S3 Bucket
+  Description: 'A bucket is a container for objects. An object is a file and any
+    metadata that describes that file.
+
+
+
+    To store an object in Amazon S3, you
+    create a bucket and then upload the object to a bucket. When the object is in
+    the bucket, you can open it, download it, and move it. When you no longer need
+    an object or a bucket, you can clean up your resources.'
+  ServiceInstance: {fileID: 11400000, guid: ef53912fd4762924aae2edf669d018f6, type: 2}
+  PropertyInstances:
+  - {fileID: 11400000, guid: c108a80dc2f758c4f8ff16c36c165f6d, type: 2}
+  - {fileID: 11400000, guid: a25b68bf1135fa64ba255fbaca1df42c, type: 2}
+  - {fileID: 11400000, guid: a7fbc14a8f702224e96c8d400b64b220, type: 2}
+  - {fileID: 11400000, guid: 332fad48fff18984c9a387fd64616990, type: 2}
+  - {fileID: 11400000, guid: f93cb496c396d9345aaa11cb6c5bc6fd, type: 2}
+  - {fileID: 11400000, guid: 4ee1ea3c2cece304fbe08d1ef591c6d0, type: 2}
