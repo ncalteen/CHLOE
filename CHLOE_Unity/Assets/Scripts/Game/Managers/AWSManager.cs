@@ -61,27 +61,6 @@ public class AWSManager : Singleton<AWSManager>
     public static string Profile
     {
         get { return profile; }
-        set
-        {
-            if (value == null)
-            {
-                // Value of null means disabling the AWS APIs.
-                profile = null;
-                Debug.Log("AWS Integration Disabled");
-            }
-            else if (!profiles.Contains(value))
-            {
-                // Value does not exist in the list of profiles.
-                profile = null;
-                Debug.LogError("Invalid AWS Profile Selected");
-            }
-            else
-            {
-                // Set selected profile.
-                profile = value;
-                Debug.Log($"Profile {value} Selected");
-            }
-        }
     }
     #endregion
 
@@ -201,31 +180,42 @@ public class AWSManager : Singleton<AWSManager>
     /// <param name="index">
     /// The index of the profile in the list.
     /// </param>
-    public static void SetProfile(int index)
+    public static void SetProfile(string profileName)
     {
-        if (index == profiles.Count)
+        // AWS integration disabled.
+        if (profileName == "Disabled")
         {
-            // The "Disabled" option is the last one in the list.
-            // Length of profile list + 1.
-            Profile = null;
+            Debug.Log("Disabling AWS credentials.");
+            profile = null;
             return;
         }
 
-        if (!sharedCredentialsFile.TryGetProfile(profiles[index], out credentialProfile))
+        // Profile does not exist.
+        if (!profiles.Contains(profileName))
         {
-            Profile = null;
-            Debug.Log($"Could not get profile {profiles[index]}");
+            Debug.LogError("Invalid AWS profile selected.");
+            profile = null;
             return;
         }
 
+        // Problem getting creds from credentials file.
+        if (!sharedCredentialsFile.TryGetProfile(profileName, out credentialProfile))
+        {
+            Debug.LogError($"Could not get profile {profileName} from credentials file.");
+            profile = null;
+            return;
+        }
+
+        // Problem configuring credentials factory.
         if (!AWSCredentialsFactory.TryGetAWSCredentials(credentialProfile, sharedCredentialsFile, out awsCredentials))
         {
-            Profile = null;
-            Debug.Log($"Could not get credentials from profile {profiles[index]}");
+            Debug.LogError($"Could not get profile {profileName} from credentials factory.");
+            profile = null;
             return;
         }
 
-        Profile = profiles[index];
+        Debug.Log($"Profile {profileName} configured.");
+        profile = profileName;
     }
     #endregion
 }

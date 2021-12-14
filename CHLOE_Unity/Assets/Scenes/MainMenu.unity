@@ -285,7 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f682c1b7405be4bb2b3ee8577591c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textObject: {fileID: 2037724036}
   scrollRect: {fileID: 127803600}
+  dropdown: {fileID: 0}
 --- !u!114 &6127069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_WrapAround: 1
     m_SelectOnUp: {fileID: 1761251436}
     m_SelectOnDown: {fileID: 0}
@@ -697,6 +699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 50046552}
   - component: {fileID: 50046553}
+  - component: {fileID: 50046554}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -774,6 +777,83 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &50046554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50046551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 623259226}
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerEnter
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 623259226}
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnSelect
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 623259226}
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 623259226}
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnDeselect
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &74637327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1781,8 @@ MonoBehaviour:
   soundSettingsContainer: {fileID: 221916766}
   gameplaySettingsContainer: {fileID: 1464717868}
   profileDropDown: {fileID: 623259222}
+  awsConfigButton: {fileID: 938430292}
+  settingsButton: {fileID: 415956521}
 --- !u!1 &293115650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,7 +2162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f682c1b7405be4bb2b3ee8577591c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textObject: {fileID: 118816439}
   scrollRect: {fileID: 127803600}
+  dropdown: {fileID: 0}
 --- !u!114 &374464131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2094,7 +2178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_WrapAround: 1
     m_SelectOnUp: {fileID: 1761251436}
     m_SelectOnDown: {fileID: 0}
@@ -2379,8 +2463,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 415956527}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerEnter
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerEnter
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2395,8 +2479,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 415956527}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonSelect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnSelect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2411,8 +2495,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 415956527}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerExit
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerExit
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2427,8 +2511,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 415956527}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonDeselect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnDeselect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2482,7 +2566,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f682c1b7405be4bb2b3ee8577591c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textObject: {fileID: 1716599132}
   scrollRect: {fileID: 0}
+  dropdown: {fileID: 0}
 --- !u!1 &434756741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2804,8 +2890,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 531408406}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerEnter
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerEnter
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2820,8 +2906,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 531408406}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonSelect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnSelect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2836,8 +2922,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 531408406}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerExit
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerExit
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2852,8 +2938,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 531408406}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonDeselect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnDeselect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2875,7 +2961,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f682c1b7405be4bb2b3ee8577591c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textObject: {fileID: 35438453}
   scrollRect: {fileID: 0}
+  dropdown: {fileID: 0}
 --- !u!1 &623259220
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,6 +2976,8 @@ GameObject:
   - component: {fileID: 623259224}
   - component: {fileID: 623259223}
   - component: {fileID: 623259222}
+  - component: {fileID: 623259226}
+  - component: {fileID: 623259225}
   m_Layer: 5
   m_Name: Dropdown
   m_TagString: Untagged
@@ -2971,7 +3061,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 230879492}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: OnAWSProfileNameChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &623259223
 MonoBehaviour:
@@ -3011,6 +3113,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623259220}
   m_CullTransparentMesh: 1
+--- !u!114 &623259225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623259220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 623259226}
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerEnter
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 623259226}
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnSelect
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 623259226}
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 623259226}
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnDeselect
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &623259226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623259220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f682c1b7405be4bb2b3ee8577591c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 128264644}
+  scrollRect: {fileID: 1810546940}
+  dropdown: {fileID: 623259222}
 --- !u!1 &700571520
 GameObject:
   m_ObjectHideFlags: 0
@@ -3259,8 +3453,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 745271416}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerEnter
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerEnter
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3275,8 +3469,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 745271416}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonSelect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnSelect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3291,8 +3485,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 745271416}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerExit
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerExit
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3307,8 +3501,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 745271416}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonDeselect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnDeselect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3330,7 +3524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f682c1b7405be4bb2b3ee8577591c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textObject: {fileID: 1754744551}
   scrollRect: {fileID: 0}
+  dropdown: {fileID: 0}
 --- !u!1 &789429690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3791,7 +3987,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f682c1b7405be4bb2b3ee8577591c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textObject: {fileID: 2071311716}
   scrollRect: {fileID: 127803600}
+  dropdown: {fileID: 0}
 --- !u!114 &938430296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3805,7 +4003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_WrapAround: 1
     m_SelectOnUp: {fileID: 1761251436}
     m_SelectOnDown: {fileID: 0}
@@ -3933,8 +4131,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1011451369}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerEnter
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerEnter
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3949,8 +4147,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1011451369}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonSelect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnSelect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3965,8 +4163,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1011451369}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerExit
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerExit
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3981,8 +4179,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1011451369}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonDeselect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnDeselect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4036,7 +4234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f682c1b7405be4bb2b3ee8577591c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textObject: {fileID: 74637329}
   scrollRect: {fileID: 0}
+  dropdown: {fileID: 0}
 --- !u!114 &1011451370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4050,7 +4250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_WrapAround: 1
     m_SelectOnUp: {fileID: 1761251436}
     m_SelectOnDown: {fileID: 0}
@@ -4308,8 +4508,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1124080963}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerEnter
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerEnter
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4324,8 +4524,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1124080963}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonSelect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnSelect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4340,8 +4540,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1124080963}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerExit
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerExit
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4356,8 +4556,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1124080963}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonDeselect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnDeselect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4411,7 +4611,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f682c1b7405be4bb2b3ee8577591c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textObject: {fileID: 937085859}
   scrollRect: {fileID: 0}
+  dropdown: {fileID: 0}
 --- !u!114 &1124080964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5105,7 +5307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f682c1b7405be4bb2b3ee8577591c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textObject: {fileID: 1552877098}
   scrollRect: {fileID: 127803600}
+  dropdown: {fileID: 0}
 --- !u!114 &1448762970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5119,7 +5323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_WrapAround: 1
     m_SelectOnUp: {fileID: 1761251436}
     m_SelectOnDown: {fileID: 0}
@@ -5330,7 +5534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.00007262907, y: 0}
   m_SizeDelta: {x: -2000, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1472489969
@@ -6207,8 +6411,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1761251440}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerEnter
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerEnter
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6223,8 +6427,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1761251440}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonSelect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnSelect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6239,8 +6443,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1761251440}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonPointerExit
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnPointerExit
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6255,8 +6459,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1761251440}
-          m_TargetAssemblyTypeName: MainMenuButtonHandler, Assembly-CSharp
-          m_MethodName: OnButtonDeselect
+          m_TargetAssemblyTypeName: MainMenuControlHandler, Assembly-CSharp
+          m_MethodName: OnDeselect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6278,7 +6482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f682c1b7405be4bb2b3ee8577591c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textObject: {fileID: 2129638153}
   scrollRect: {fileID: 0}
+  dropdown: {fileID: 0}
 --- !u!1 &1768914575
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,6 +44,16 @@ public class MainMenuManager : Singleton<MainMenuManager>
     /// Drop down of AWS profiles.
     /// </summary>
     [SerializeField] private TMP_Dropdown profileDropDown;
+
+    /// <summary>
+    /// Button to open the AWS configuration settings.
+    /// </summary>
+    [SerializeField] private GameObject awsConfigButton;
+
+    /// <summary>
+    /// Settings button on main menu.
+    /// </summary>
+    [SerializeField] private GameObject settingsButton;
     #endregion
 
     #region Unity
@@ -59,7 +69,7 @@ public class MainMenuManager : Singleton<MainMenuManager>
     }
     #endregion
 
-    #region Button Handlers
+    #region UI Control Handlers
     /// <summary>
     /// Player selects demo mode.
     /// </summary>
@@ -74,6 +84,13 @@ public class MainMenuManager : Singleton<MainMenuManager>
     /// </summary>
     public void OnSettingsOpened(BaseEventData eventData)
     {
+        // Deselect the settings button.
+        MainMenuControlHandler settingsHandler = eventData.selectedObject.GetComponent<MainMenuControlHandler>();
+        if (settingsHandler)
+        {
+            settingsHandler.OnDeselect(eventData);
+        }
+
         // Hide main menu container.
         this.mainMenuContainer.SetActive(false);
 
@@ -85,6 +102,9 @@ public class MainMenuManager : Singleton<MainMenuManager>
 
         // Show settings menu container.
         this.settingsMenuContainer.SetActive(true);
+
+        // Select AWS settings initially.
+        EventSystem.current.SetSelectedGameObject(this.awsConfigButton);
     }
 
     /// <summary>
@@ -92,11 +112,21 @@ public class MainMenuManager : Singleton<MainMenuManager>
     /// </summary>
     public void OnSettingsClosed(BaseEventData eventData)
     {
+        // Deselect the back button.
+        MainMenuControlHandler backHandler = eventData.selectedObject.GetComponent<MainMenuControlHandler>();
+        if (backHandler)
+        {
+            backHandler.OnDeselect(eventData);
+        }
+
         // Hide the settings menu container.
         this.settingsMenuContainer.SetActive(false);
 
         // Show main menu container.
         this.mainMenuContainer.SetActive(true);
+
+        // Select AWS settings initially.
+        EventSystem.current.SetSelectedGameObject(this.settingsButton);
     }
 
     /// <summary>
@@ -141,6 +171,19 @@ public class MainMenuManager : Singleton<MainMenuManager>
         this.controlsSettingsContainer.SetActive(false);
         this.soundSettingsContainer.SetActive(false);
         this.gameplaySettingsContainer.SetActive(true);
+    }
+
+    /// <summary>
+    /// Player selects a new AWS profile name.
+    /// </summary>
+    public void OnAWSProfileNameChanged(int selection)
+    {
+        // Get the profile name from the options list.
+        TMP_Dropdown.OptionData selectedOption = this.profileDropDown.options[selection];
+        string profileName = selectedOption.text;
+
+        // Set the profile in the AWSManager.
+        AWSManager.SetProfile(profileName);
     }
     #endregion
 
