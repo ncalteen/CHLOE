@@ -30,9 +30,7 @@ I come from what I like to think is a decent DevOps background. I can generally 
 If you're interested in contributing to the game asset fund, please use any of the links below. Donations would be used solely for the purchase or license of assets and code that will either be part of CHLOE itself or part of what brings CHLOE to life.
 
 [![Buy Me a Coffee](https://img.shields.io/badge/buymeacoffee-ncalteen-orange)](https://www.buymeacoffee.com/ncalteen)
-
 [![PayPal.Me](https://img.shields.io/badge/paypal-ncalteen-blue)](https://paypal.me/ncalteen)
-
 [![Coinbase](https://img.shields.io/badge/coinbase-0x5b340de3738613c94e2f624e2c30db5627fa4cc8-red)](0x5b340de3738613c94e2f624e2c30db5627fa4cc8)
 
 If you have experience in literally any of the below and want to contribute time instead, please do! Any and all PRs will be reviewed and, *given the high chance they're better than any code I could write*, likely merged.
