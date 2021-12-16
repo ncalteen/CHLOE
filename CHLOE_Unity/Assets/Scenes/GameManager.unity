@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2a3924e07220c4cb5d388b2ecfb515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 758573253}
 --- !u!114 &758573253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,9 +284,25 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 72932e1b-6445-473c-8d4f-7e0cbe2a3e64
     m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 758573252}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnOpenServiceMenuEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c84af607-605d-4888-8702-5e1cc60e35b2
+    m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: 3306b00c-6436-47ab-ae0c-2f864cc9559e
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1103417733
@@ -332,7 +349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ab3eae6ac8fd54481914df19505dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  demoLevel: {fileID: 11400000, guid: eff988d88f72bad48965a727e0df4851, type: 2}
   simulationLevel: {fileID: 11400000, guid: ae178ca1c5663db40834d772a88ad939, type: 2}
   gameLevels:
   - {fileID: 11400000, guid: b8e64829328ac2346a1789a4c074ca76, type: 2}

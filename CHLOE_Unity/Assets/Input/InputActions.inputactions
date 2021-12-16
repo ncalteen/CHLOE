@@ -28,6 +28,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "OpenServiceMenu",
+                    "type": "Button",
+                    "id": "c84af607-605d-4888-8702-5e1cc60e35b2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -129,8 +137,25 @@
                     "action": "Fly",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5e8360b3-d2be-4d38-b008-7f116c7f0c56",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenServiceMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "ade2b79d-5789-4049-9b4e-cadf73979594",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": []

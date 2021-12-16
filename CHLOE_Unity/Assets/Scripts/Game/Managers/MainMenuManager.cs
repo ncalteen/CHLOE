@@ -71,12 +71,12 @@ public class MainMenuManager : Singleton<MainMenuManager>
 
     #region UI Control Handlers
     /// <summary>
-    /// Player selects demo mode.
+    /// Player selects simulation mode.
     /// </summary>
-    public void OnDemoModeOpened(BaseEventData eventData)
+    public void OnSimulationModeOpened(BaseEventData eventData)
     {
         // This scene will be unloaded...hand control off to GameManager.
-        GameManager.Instance.OnDemoModeOpened();
+        GameManager.Instance.OnSimulationModeOpened();
     }
 
     /// <summary>

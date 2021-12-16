@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/GameManager.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/UI/MainMenu.unity
     guid: 3022e610bf8213e4c8adec8e830af8a7
+  - enabled: 1
+    path: Assets/Scenes/UI/SimulationMenu.unity
+    guid: c1fa7cde220684d4bbfc0e8b2c1079d4
   - enabled: 1
     path: Assets/Scenes/Simulation.unity
     guid: 49a52f7bd39169e4987b496f9efd72ae
-  - enabled: 1
-    path: Assets/Scenes/Demo.unity
-    guid: 0e00bde1c5744284e95e7d5882900edf
   - enabled: 1
     path: Assets/Scenes/Level/0.unity
     guid: 5c70adf65fa837b4ca92837e5e40c69c

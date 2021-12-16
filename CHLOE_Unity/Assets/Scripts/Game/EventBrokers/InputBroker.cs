@@ -31,4 +31,12 @@ public class InputBroker : Singleton<InputBroker>
         Input_OnLookEvent?.Invoke(context);
     }
     #endregion
+
+    #region Player Interaction
+    public static event Action<InputAction.CallbackContext> Input_OnOpenServiceMenuEvent;
+    public static void Call_Input_OnOpenServiceMenuEvent(InputAction.CallbackContext context)
+    {
+        Input_OnOpenServiceMenuEvent?.Invoke(context);
+    }
+    #endregion
 }

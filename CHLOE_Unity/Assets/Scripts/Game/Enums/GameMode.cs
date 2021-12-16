@@ -17,9 +17,4 @@ public enum GameMode
     /// Player is currently in simulation mode.
     /// </summary>
     SIMULATION,
-
-    /// <summary>
-    /// Player is currently in demo mode.
-    /// </summary>
-    DEMO,
 }

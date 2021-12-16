@@ -15,6 +15,7 @@ MonoBehaviour:
   levelID: -1
   levelName: Simulation
   sceneName: Simulation
+  menuSceneName: SimulationMenu
   description: This is Simulation Mode, which lets you connect to your AWS account
     and do things.
   awsServices:
