@@ -1,6 +1,6 @@
 # Cloud Hosted Learning Objective Enablement (CHLOE)
 
-**Disclaimer:** This is very much a work-in-progress. All design, documentation, etc. is written from the point of view of a completed product...*which CHLOE is far from*.
+**Disclaimer:** This is very much a work-in-progress. All design, documentation, etc. is written from the point of view of a completed product...*which CHLOE is far from*. Currently I am working on migrating some development work from another repository to here, in the hopes that others who are interested in AWS and/or game development can contribute ideas, code, or anything else.
 
 The [CHLOE_Unity](./CHLOE_Unity) project contains the current source code for the proof of concept game.
 
