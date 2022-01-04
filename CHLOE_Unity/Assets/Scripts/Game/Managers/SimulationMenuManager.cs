@@ -56,46 +56,71 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
 
         // Subscribe to event notifications.
         InputBroker.Input_OnOpenServiceMenuEvent += OnOpenServiceMenuEvent;
+        InputBroker.Input_OnCloseServiceMenuEvent += OnCloseServiceMenuEvent;
     }
 
     private void OnDisable()
     {
         // Unsubscribe to event notifications.
         InputBroker.Input_OnOpenServiceMenuEvent -= OnOpenServiceMenuEvent;
+        InputBroker.Input_OnCloseServiceMenuEvent -= OnCloseServiceMenuEvent;
     }
     #endregion
 
-    #region UI Event Handlers
+    #region Event Handlers
     /// <summary>
-    /// User opens/closes the service menu.
+    /// User opens the service menu.
     /// </summary>
     public void OnOpenServiceMenuEvent(InputAction.CallbackContext context)
     {
         // Switch menu open state.
-        this.isMenuOpen = !this.isMenuOpen;
+        this.isMenuOpen = true;
 
-        // Toggle service menu.
-        ToggleServiceMenu();
+        // Show mouse cursor.
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
-        // Change player control mode.
-        if (this.isMenuOpen)
-            InputManager.Instance.TogglePlayerInputActionMap("UI");
-        else
-            InputManager.Instance.TogglePlayerInputActionMap("Player");
-    }
-    #endregion
-
-    #region Service Menu Helper Methods
-    /// <summary>
-    /// Shows the service menu in its initial state.
-    /// </summary>
-    private void ToggleServiceMenu()
-    {
         // Show the canvas background.
-        this.backgroundPane.SetActive(this.isMenuOpen);
+        this.backgroundPane.SetActive(true);
 
         // Show the service menu.
-        this.serviceMenuContainer.SetActive(this.isMenuOpen);
+        this.serviceMenuContainer.SetActive(true);
+
+        // Change player control mode.
+        InputManager.Instance.TogglePlayerInputActionMap("UI");
+    }
+
+    /// <summary>
+    /// User closes the service menu.
+    /// </summary>
+    public void OnCloseServiceMenuEvent(InputAction.CallbackContext context)
+    {
+        // Switch menu open state.
+        this.isMenuOpen = false;
+
+        // Hide mouse cursor.
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        // Show the canvas background.
+        this.backgroundPane.SetActive(false);
+
+        // Show the service menu.
+        this.serviceMenuContainer.SetActive(false);
+
+        // Change player control mode.
+        InputManager.Instance.TogglePlayerInputActionMap("Player");
+    }
+
+    /// <summary>
+    /// User selects a category of services to view.
+    /// </summary>
+    /// <param name="category">
+    /// The category the user wants to view.
+    /// </param>
+    public void OnServiceCategorySelectedEvent(ServiceCategoryTypes category)
+    {
+
     }
     #endregion
 }

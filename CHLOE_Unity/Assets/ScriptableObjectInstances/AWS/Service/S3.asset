@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: S3
   m_EditorClassIdentifier: 
   ID: S3
-  ResourceInstances:
-  - {fileID: 11400000, guid: a60d74d40b7ebf74db63dbb47cde0f4a, type: 2}
   ShortName: Amazon S3
   LongName: Amazon Simple Storage Service (Amazon S3)
+  Category: 20
   Description: Amazon Simple Storage Service (Amazon S3) is an object storage service
     that offers industry-leading scalability, data availability, security, and performance.
     This means customers of all sizes and industries can use it to store and protect
@@ -24,3 +23,5 @@ MonoBehaviour:
     applications, backups, archive, machine learning, and analytics. Amazon S3 is
     designed for 99.999999999% (11 9's) of durability, and stores data for millions
     of customers all around the world.
+  ResourceInstances:
+  - {fileID: 11400000, guid: a60d74d40b7ebf74db63dbb47cde0f4a, type: 2}

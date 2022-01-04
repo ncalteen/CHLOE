@@ -20,6 +20,9 @@ public class ServiceSO : ScriptableObject
     
     public string LongName;
 
+    // Select from list here: https://aws.amazon.com/products/?aws-products-all
+    public ServiceCategoryTypes Category;
+
     [TextArea(10, 100)]
     public string Description;
 

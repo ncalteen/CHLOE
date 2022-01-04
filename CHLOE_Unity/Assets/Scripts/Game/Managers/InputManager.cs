@@ -72,9 +72,24 @@ public class InputManager : Singleton<InputManager>
 			InputBroker.Call_Input_OnOpenServiceMenuEvent(context);
 		}
 	}
-    #endregion
 
-    #region Input System Management
+	/// <summary>
+	/// Player closes the services menu in game/simulation mode.
+	/// </summary>
+	/// <param name="context">
+	///	Input context.
+	/// </param>
+	public void OnCloseServiceMenuEvent(InputAction.CallbackContext context)
+	{
+		// Only open when action is initiated.
+		if (context.phase == InputActionPhase.Started)
+		{
+			InputBroker.Call_Input_OnCloseServiceMenuEvent(context);
+		}
+	}
+	#endregion
+
+	#region Input System Management
 	public void TogglePlayerInputActionMap(string mapName)
     {
 		this.playerInput.SwitchCurrentActionMap(mapName);

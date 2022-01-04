@@ -154,8 +154,29 @@
         {
             "name": "UI",
             "id": "ade2b79d-5789-4049-9b4e-cadf73979594",
-            "actions": [],
-            "bindings": []
+            "actions": [
+                {
+                    "name": "OpenServiceMenu",
+                    "type": "Button",
+                    "id": "64c840e7-e49c-4b03-9597-d3181316e05d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fa144569-c4e6-4588-812f-ba0b2f41bacc",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenServiceMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

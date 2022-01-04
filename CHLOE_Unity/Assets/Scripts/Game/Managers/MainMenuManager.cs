@@ -85,7 +85,7 @@ public class MainMenuManager : Singleton<MainMenuManager>
     public void OnSettingsOpened(BaseEventData eventData)
     {
         // Deselect the settings button.
-        MainMenuControlHandler settingsHandler = eventData.selectedObject.GetComponent<MainMenuControlHandler>();
+        ControlHandler settingsHandler = eventData.selectedObject.GetComponent<ControlHandler>();
         if (settingsHandler)
         {
             settingsHandler.OnDeselect(eventData);
@@ -113,7 +113,7 @@ public class MainMenuManager : Singleton<MainMenuManager>
     public void OnSettingsClosed(BaseEventData eventData)
     {
         // Deselect the back button.
-        MainMenuControlHandler backHandler = eventData.selectedObject.GetComponent<MainMenuControlHandler>();
+        ControlHandler backHandler = eventData.selectedObject.GetComponent<ControlHandler>();
         if (backHandler)
         {
             backHandler.OnDeselect(eventData);

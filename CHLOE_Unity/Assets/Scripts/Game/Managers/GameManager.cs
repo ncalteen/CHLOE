@@ -73,6 +73,10 @@ public class GameManager : Singleton<GameManager>
 
         // Change the current game mode after everything is loaded/unloaded.
         currentMode = GameMode.SIMULATION;
+
+        // Hide mouse cursor.
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     #endregion
 }

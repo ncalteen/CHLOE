@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 
-public class MainMenuControlHandler : MonoBehaviour, IScrollHandler
+public class ControlHandler : MonoBehaviour, IScrollHandler
 {
     #region Variables
     /// <summary>

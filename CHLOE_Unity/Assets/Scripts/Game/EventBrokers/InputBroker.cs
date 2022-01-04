@@ -38,5 +38,11 @@ public class InputBroker : Singleton<InputBroker>
     {
         Input_OnOpenServiceMenuEvent?.Invoke(context);
     }
+
+    public static event Action<InputAction.CallbackContext> Input_OnCloseServiceMenuEvent;
+    public static void Call_Input_OnCloseServiceMenuEvent(InputAction.CallbackContext context)
+    {
+        Input_OnCloseServiceMenuEvent?.Invoke(context);
+    }
     #endregion
 }
