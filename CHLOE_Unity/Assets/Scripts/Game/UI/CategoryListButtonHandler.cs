@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ServiceCategoryButtonHandler : MonoBehaviour
+public class CategoryListButtonHandler : MonoBehaviour
 {
     #region Variables
     /// <summary>
@@ -18,9 +18,14 @@ public class ServiceCategoryButtonHandler : MonoBehaviour
     #endregion
 
     #region Event Handlers
-    public void OnServiceCategorySelected(BaseEventData eventData)
+    /// <summary>
+    /// User selects a service category.
+    /// SimulationMenuManager will populate the services list.
+    /// </summary>
+    public void OnCategorySelected(BaseEventData eventData)
     {
-        Debug.Log(category);
+        // Call SimulationMenuManager to populate the services list.
+        SimulationMenuManager.Instance.OnCategorySelectedEvent(this.category, this.gameObject);
     }
     #endregion
 }

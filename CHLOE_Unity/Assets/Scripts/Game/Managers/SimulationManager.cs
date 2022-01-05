@@ -1,11 +1,18 @@
 using UnityEngine;
 
-public class SimulationManager : MonoBehaviour
+public class SimulationManager : Singleton<SimulationManager>
 {
-    #region Unity
-    // Start is called before the first frame update
-    void Start()
+    #region Variables
+    /// <summary>
+    /// The ScriptableObject instance with the level data.
+    /// </summary>
+    [SerializeField] private LevelSO level;
+    #endregion
+
+    #region Properties
+    public LevelSO Level
     {
+        get { return this.level; }
     }
     #endregion
 }

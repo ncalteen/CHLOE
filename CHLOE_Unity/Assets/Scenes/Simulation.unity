@@ -270,6 +270,8 @@ MonoBehaviour:
   characterController: {fileID: 458222851}
   mainCamera: {fileID: 963194227}
   filterCamera: {fileID: 0}
+  isFlightEnabled: 1
+  isMovementEnabled: 1
   cameraPivotTransform: {fileID: 1270007507}
   resourceAnchorTransform: {fileID: 0}
   resourceCollectionTransform: {fileID: 0}
@@ -1000,3 +1002,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a847bb42a487142bfc2e42f48f6bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: {fileID: 11400000, guid: ae178ca1c5663db40834d772a88ad939, type: 2}
