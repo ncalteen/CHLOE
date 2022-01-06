@@ -54,8 +54,8 @@
 
     In the screenshots below, the existing architecture is highlighted based on security configuration issues.
 
-    ![Concept: Default view (no filter applied)](./images/concept_nofilter.png)
-    ![Concept: Security filter view](./images/concept_filter.png)
+    ![Concept: Default view (no filter applied)](./Images/concept_nofilter.png)
+    ![Concept: Security filter view](./Images/concept_filter.png)
 
 1. Can I view any AWS product and service with CHLOE?
 
@@ -174,7 +174,7 @@
 
     **VR Training Classes:** CHLOE would be used to deliver a unique training experience using VR arenas (product image from [KAT VRMIS]{.underline}](https://www.kat-vr.com/pages/vr_arena)).
 
-    ![Concept: Example KatVR arena](./images/concept_katvr_arena.png)
+    ![Concept: Example KatVR arena](./Images/concept_katvr_arena.png)
 
     **Expanded Recommendations:** Initially, CHLOE will be limited in functionality. As players use the system and provide feedback, CHLOE will be expanded in scope to provide training, feedback, and recommendations that are more contextually aware of the players' AWS accounts, gameplay history, current and past activity, and goals. This data will be used by a recommendation engine to provide specific suggestions on how to best leverage AWS technologies and training.
 
