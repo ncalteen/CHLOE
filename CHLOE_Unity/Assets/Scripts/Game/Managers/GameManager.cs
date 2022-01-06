@@ -37,10 +37,6 @@ public class GameManager : Singleton<GameManager>
             if (SceneManager.GetSceneByName(simulationLevel.SceneName).isLoaded)
                 SceneManager.UnloadSceneAsync(simulationLevel.SceneName);
 
-            // Unload the simulation menu scene if it is loaded (for development).
-            if (SceneManager.GetSceneByName(simulationLevel.MenuSceneName).isLoaded)
-                SceneManager.UnloadSceneAsync(simulationLevel.MenuSceneName);
-
             // Load the main menu if it is not already.
             if (!SceneManager.GetSceneByName("MainMenu").isLoaded)
                 SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
@@ -67,9 +63,6 @@ public class GameManager : Singleton<GameManager>
 
         // Load the simulation scene.
         SceneManager.LoadScene(this.simulationLevel.SceneName, LoadSceneMode.Additive);
-
-        // Load the simulation menu scene.
-        SceneManager.LoadScene(this.simulationLevel.MenuSceneName, LoadSceneMode.Additive);
 
         // Change the current game mode after everything is loaded/unloaded.
         currentMode = GameMode.SIMULATION;

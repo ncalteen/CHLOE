@@ -16,15 +16,35 @@ public class ResourceSO : ScriptableObject
     /// </summary>
     public string ID;
 
+    /// <summary>
+    /// The subsequent use name.
+    /// </summary>
     public string ShortName;
     
+    /// <summary>
+    /// The first use name.
+    /// </summary>
     public string LongName;
 
+    /// <summary>
+    /// The description of the resource.
+    /// </summary>
     [TextArea(10, 100)]
     public string Description;
 
+    /// <summary>
+    /// The service this resource belongs to.
+    /// </summary>
     public ServiceSO ServiceInstance;
 
+    /// <summary>
+    /// The properties that define this resource.
+    /// </summary>
     public List<PropertySO> PropertyInstances;
+
+    /// <summary>
+    /// The prefab to instantiate.
+    /// </summary>
+    public GameObject ResourcePrefab;
     #endregion
 }

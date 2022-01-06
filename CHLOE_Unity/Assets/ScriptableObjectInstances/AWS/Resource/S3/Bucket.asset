@@ -19,7 +19,6 @@ MonoBehaviour:
     metadata that describes that file.
 
 
-
     To store an object in Amazon S3, you
     create a bucket and then upload the object to a bucket. When the object is in
     the bucket, you can open it, download it, and move it. When you no longer need
@@ -32,3 +31,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 332fad48fff18984c9a387fd64616990, type: 2}
   - {fileID: 11400000, guid: f93cb496c396d9345aaa11cb6c5bc6fd, type: 2}
   - {fileID: 11400000, guid: 4ee1ea3c2cece304fbe08d1ef591c6d0, type: 2}
+  ResourcePrefab: {fileID: 2618620086711220012, guid: 64a2174cd9e93e246b47e2bbf186c560, type: 3}

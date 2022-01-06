@@ -21,11 +21,6 @@ public class LevelSO : ScriptableObject
     [SerializeField] private string sceneName;
 
     /// <summary>
-    /// The scene containing the level's menu.
-    /// </summary>
-    [SerializeField] private string menuSceneName;
-
-    /// <summary>
     /// Level description.
     /// </summary>
     [TextArea(10, 100)]
@@ -51,11 +46,6 @@ public class LevelSO : ScriptableObject
     public string SceneName
     {
         get { return this.sceneName; }
-    }
-
-    public string MenuSceneName
-    {
-        get { return this.menuSceneName; }
     }
 
     public string Description

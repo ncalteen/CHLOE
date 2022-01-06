@@ -7,11 +7,6 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
 {
     #region Variables
     /// <summary>
-    /// Track status of the menu.
-    /// </summary>
-    private bool isMenuOpen = false;
-
-    /// <summary>
     /// The background pane to darken the game environment during pause/menu open.
     /// </summary>
     [SerializeField] private GameObject backgroundPane;
@@ -87,6 +82,11 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
     [SerializeField] private GameObject resourceContainer;
 
     /// <summary>
+    /// Details for the selected resource.
+    /// </summary>
+    [SerializeField] private GameObject resourceDetailContainer;
+
+    /// <summary>
     /// Parent content GameObject for resource list ScrollRect.
     /// </summary>
     [SerializeField] private GameObject resourceItemParent;
@@ -97,6 +97,16 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
     [SerializeField] private GameObject resourceItemPrefab;
 
     /// <summary>
+    /// The container that holds a spinning model of the selected resource.
+    /// </summary>
+    [SerializeField] private GameObject resourceModelContainer;
+
+    /// <summary>
+    /// The description text box for the selected resource.
+    /// </summary>
+    [SerializeField] private TMP_Text resourceDescription;
+
+    /// <summary>
     /// The currently selected service category button.
     /// </summary>
     private GameObject selectedCategoryButton;
@@ -105,14 +115,6 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
     /// The currently selected service button.
     /// </summary>
     private GameObject selectedServiceButton;
-    #endregion
-
-    #region Properties
-    public bool IsMenuOpen
-    {
-        get { return this.isMenuOpen; }
-        set { this.isMenuOpen = value; }
-    }
     #endregion
 
     #region Unity
@@ -131,6 +133,7 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
         this.categoryContainer.SetActive(true);
         this.serviceContainer.SetActive(false);
         this.resourceContainer.SetActive(false);
+        this.resourceDetailContainer.SetActive(false);
 
         // Subscribe to event notifications.
         InputBroker.Input_OnOpenServiceMenuEvent += OnOpenServiceMenuEvent;
@@ -151,9 +154,6 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
     /// </summary>
     public void OnOpenServiceMenuEvent(InputAction.CallbackContext context)
     {
-        // Switch menu open state.
-        this.isMenuOpen = true;
-
         // Show mouse cursor.
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -177,9 +177,6 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
     /// </summary>
     public void OnCloseServiceMenuEvent(InputAction.CallbackContext context)
     {
-        // Switch menu open state.
-        this.isMenuOpen = false;
-
         // Hide mouse cursor.
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -348,6 +345,7 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
     {
         // Disable the resource list.
         this.resourceContainer.SetActive(false);
+        this.resourceDetailContainer.SetActive(false);
 
         // Disable the category list.
         this.categoryContainer.SetActive(false);
@@ -360,6 +358,42 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
 
         // Change focus to the previously selected item in the service list.
         EventSystem.current.SetSelectedGameObject(this.selectedServiceButton);
+    }
+
+    /// <summary>
+    /// User has selected a resource type from the service UI.
+    /// </summary>
+    /// <param name="resource">
+    /// The resource representation.
+    /// </param>
+    public void OnResourceSelectedEvent(ResourceSO resource)
+    {
+        // Remove any previous spinning model.
+        foreach (Transform child in this.resourceModelContainer.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        // Instantiate the spinning model for the selected service.
+        GameObject model = Instantiate(resource.ResourcePrefab, this.resourceModelContainer.transform);
+
+        // Scale it up to the right size for the UI.
+        model.transform.localScale = new Vector3(200f, 200f, 200f);
+
+        // Make sure it is added to the UI layer.
+        model.layer = 5;
+
+        // Remove the collider (used in the game world).
+        GameObject.Destroy(model.GetComponent<BoxCollider>());
+
+        // Update the transform in SpinningResourceModelHandler.
+        SpinningResourceModelHandler.Instance.ResourceTransform = model.transform;
+
+        // Update the text box with the details about the service.
+        this.resourceDescription.text = resource.Description;
+
+        // Done setup, show the menu.
+        this.resourceDetailContainer.SetActive(true);
     }
     #endregion
 }

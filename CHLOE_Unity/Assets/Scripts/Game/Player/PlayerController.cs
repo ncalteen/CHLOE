@@ -17,6 +17,11 @@ public class PlayerController : Singleton<PlayerController>
     /// </summary>
     [SerializeField] private Camera mainCamera;
 
+	/// <summary>
+	/// The UI camera. UI is in Screen Space - Camera to support 3D models in UI.
+	/// </summary>
+	[SerializeField] private Camera uiCamera;
+
     /// <summary>
     /// The camera used for view filters.
     /// </summary>
@@ -114,6 +119,12 @@ public class PlayerController : Singleton<PlayerController>
 	{
 		get { return this.mainCamera; }
 	}
+
+	public Camera UICamera
+    {
+        get { return this.uiCamera; }
+		set { this.uiCamera = value; }
+    }
 
 	public Camera FilterCamera
 	{

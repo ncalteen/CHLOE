@@ -37,7 +37,7 @@ public class ResourceListButtonHandler : MonoBehaviour
     public void OnResourceListItemSelected(BaseEventData eventData)
     {
         // Call SimulationMenuManager to populate the resource description.
-        Debug.Log("TODO: Implement.");
+        SimulationMenuManager.Instance.OnResourceSelectedEvent(resource);
     }
     #endregion
 }
