@@ -22,3 +22,5 @@ MonoBehaviour:
   Required: 0
   PropertyType: 2
   UpdateType: 2
+  ListSource: {fileID: 0}
+  NestedSource: {fileID: 0}

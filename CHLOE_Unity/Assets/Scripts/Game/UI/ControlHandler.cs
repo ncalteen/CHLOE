@@ -22,12 +22,30 @@ public class ControlHandler : MonoBehaviour, IScrollHandler
     [SerializeField] private TMP_Dropdown dropdown;
     #endregion
 
+    #region Unity
+    private void Start()
+    {
+        UIBroker.Button_Selected += OnButtonSelectedEvent;
+    }
+
+    private void OnDisable()
+    {
+        UIBroker.Button_Selected -= OnButtonSelectedEvent;
+
+        // Change the text color.
+        this.textObject.color = Color.white;
+    }
+    #endregion
+
     #region Event Handlers
     /// <summary>
     /// Player enters hover on a control.
     /// </summary>
     public void OnPointerEnter(BaseEventData eventData)
     {
+        // Unselect everything else.
+        UIBroker.Call_Button_Selected();
+
         // Update current selection in event system.
         EventSystem.current.SetSelectedGameObject(this.gameObject);
 
@@ -40,6 +58,9 @@ public class ControlHandler : MonoBehaviour, IScrollHandler
     /// </summary>
     public void OnSelect(BaseEventData eventData)
     {
+        // Unselect everything else.
+        UIBroker.Call_Button_Selected();
+
         // Change the text color.
         this.textObject.color = Color.green;
     }
@@ -57,6 +78,15 @@ public class ControlHandler : MonoBehaviour, IScrollHandler
     /// Player exits hover on a control.
     /// </summary>
     public void OnPointerExit(BaseEventData eventData)
+    {
+        // Change the text color.
+        this.textObject.color = Color.white;
+    }
+
+    /// <summary>
+    /// Changes button color when another button is selected.
+    /// </summary>
+    public void OnButtonSelectedEvent()
     {
         // Change the text color.
         this.textObject.color = Color.white;

@@ -162,6 +162,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "CreateResourceInstance",
+                    "type": "Button",
+                    "id": "58193979-1563-4d5d-ac25-7fc14df3b6e0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -175,6 +183,39 @@
                     "action": "OpenServiceMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "Button With One Modifier",
+                    "id": "d0536952-7a20-483d-9a17-6d5ed8e552a9",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CreateResourceInstance",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "fecff6af-9051-468e-9748-80d895aaa09f",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CreateResourceInstance",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "5942b6d0-e630-4b77-8af5-09bc577ba95d",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CreateResourceInstance",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

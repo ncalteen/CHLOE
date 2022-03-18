@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Amazon.S3;
+using System;
 
 /// <summary>
 /// S3 grant grantee data type.
@@ -10,6 +11,11 @@ using Amazon.S3;
 [System.Serializable]
 public class S3GranteeTypes : ListSource, IListProperty<GranteeType>
 {
+    public override Type ItemType()
+    {
+        return typeof(GranteeType);
+    }
+
     public List<GranteeType> Items()
     {
         return new List<GranteeType>()
@@ -27,13 +33,11 @@ public class S3GranteeTypes : ListSource, IListProperty<GranteeType>
 
     public List<string> Options()
     {
-        List<string> items = new List<string>();
-
-        foreach (GranteeType item in Items())
+        return new List<string>()
         {
-            items.Add(item.ToString());
-        }
-
-        return items;
+            GranteeType.CanonicalUser,
+            GranteeType.Email,
+            GranteeType.Group
+        };
     }
 }

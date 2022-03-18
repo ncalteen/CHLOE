@@ -23,8 +23,8 @@ MonoBehaviour:
     create a bucket and then upload the object to a bucket. When the object is in
     the bucket, you can open it, download it, and move it. When you no longer need
     an object or a bucket, you can clean up your resources.'
-  ServiceInstance: {fileID: 11400000, guid: ef53912fd4762924aae2edf669d018f6, type: 2}
-  PropertyInstances:
+  Service: {fileID: 11400000, guid: ef53912fd4762924aae2edf669d018f6, type: 2}
+  Properties:
   - {fileID: 11400000, guid: c108a80dc2f758c4f8ff16c36c165f6d, type: 2}
   - {fileID: 11400000, guid: a25b68bf1135fa64ba255fbaca1df42c, type: 2}
   - {fileID: 11400000, guid: a7fbc14a8f702224e96c8d400b64b220, type: 2}

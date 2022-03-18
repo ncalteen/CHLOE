@@ -183,7 +183,7 @@ public class MainMenuManager : Singleton<MainMenuManager>
         string profileName = selectedOption.text;
 
         // Set the profile in the AWSManager.
-        AWSManager.SetProfile(profileName);
+        AWSCredentialManager.SetProfile(profileName);
     }
     #endregion
 
@@ -193,7 +193,7 @@ public class MainMenuManager : Singleton<MainMenuManager>
         // Clear list of options.
         this.profileDropDown.options.Clear();
 
-        foreach (string profile in AWSManager.Profiles)
+        foreach (string profile in AWSCredentialManager.Profiles)
         {
             this.profileDropDown.options.Add(new TMP_Dropdown.OptionData(profile));
         }
@@ -201,10 +201,10 @@ public class MainMenuManager : Singleton<MainMenuManager>
         // Add one for disabling the AWS integration.
         this.profileDropDown.options.Insert(0, new TMP_Dropdown.OptionData("Disabled"));
 
-        if (AWSManager.Profile != null)
+        if (AWSCredentialManager.Profile != null)
         {
             // If a profile is selected, set it now.
-            this.profileDropDown.value = AWSManager.Profiles.IndexOf(AWSManager.Profile);
+            this.profileDropDown.value = AWSCredentialManager.Profiles.IndexOf(AWSCredentialManager.Profile);
         }
     }
     #endregion

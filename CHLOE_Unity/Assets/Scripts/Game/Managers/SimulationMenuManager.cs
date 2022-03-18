@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.UI;
 
 public class SimulationMenuManager : Singleton<SimulationMenuManager>
 {
@@ -107,6 +108,21 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
     [SerializeField] private TMP_Text resourceDescription;
 
     /// <summary>
+    /// The settings button in the UI
+    /// </summary>
+    [SerializeField] private GameObject settingsButton;
+
+    /// <summary>
+    /// The exit game button in the UI
+    /// </summary>
+    [SerializeField] private GameObject exitButton;
+
+    /// <summary>
+    /// The button to create a resource instance
+    /// </summary>
+    [SerializeField] private GameObject createResourceButton;
+
+    /// <summary>
     /// The currently selected service category button.
     /// </summary>
     private GameObject selectedCategoryButton;
@@ -115,6 +131,12 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
     /// The currently selected service button.
     /// </summary>
     private GameObject selectedServiceButton;
+
+    /// <summary>
+    /// The currently selected resource.
+    /// Null if none is selected.
+    /// </summary>
+    private ResourceSO currentResource;
     #endregion
 
     #region Unity
@@ -134,10 +156,12 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
         this.serviceContainer.SetActive(false);
         this.resourceContainer.SetActive(false);
         this.resourceDetailContainer.SetActive(false);
+        this.createResourceButton.SetActive(false);
 
         // Subscribe to event notifications.
         InputBroker.Input_OnOpenServiceMenuEvent += OnOpenServiceMenuEvent;
         InputBroker.Input_OnCloseServiceMenuEvent += OnCloseServiceMenuEvent;
+        InputBroker.Input_OnCreateResourceEvent += OnCreateResourceEvent;
     }
 
     private void OnDisable()
@@ -145,6 +169,7 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
         // Unsubscribe to event notifications.
         InputBroker.Input_OnOpenServiceMenuEvent -= OnOpenServiceMenuEvent;
         InputBroker.Input_OnCloseServiceMenuEvent -= OnCloseServiceMenuEvent;
+        InputBroker.Input_OnCreateResourceEvent -= OnCreateResourceEvent;
     }
     #endregion
 
@@ -164,12 +189,31 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
         // Show the service menu.
         this.serviceMenuContainer.SetActive(true);
 
+        // Disable settings and exit buttons
+        this.settingsButton.SetActive(false);
+        this.exitButton.SetActive(false);
+
+        // Unset the currently selected resource.
+        this.currentResource = null;
+
+        // Set the needed menu controls.
+        this.categoryBackButton.SetActive(false);
+        this.serviceBackButton.SetActive(false);
+        this.categoryContainer.SetActive(true);
+        this.serviceContainer.SetActive(false);
+        this.resourceContainer.SetActive(false);
+        this.resourceDetailContainer.SetActive(false);
+        this.createResourceButton.SetActive(false);
+
         // Change player control mode.
         InputManager.Instance.TogglePlayerInputActionMap("UI");
 
         // Change focus to the first item in the category list.
         EventSystem.current.SetSelectedGameObject(this.categoryDefaultGameObject);
         this.selectedCategoryButton = this.categoryDefaultGameObject;
+
+        // Highlight only this button.
+        this.selectedCategoryButton.GetComponent<Button>().Select();
     }
 
     /// <summary>
@@ -177,15 +221,25 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
     /// </summary>
     public void OnCloseServiceMenuEvent(InputAction.CallbackContext context)
     {
+        // Update all highlighted buttons.
+        UIBroker.Call_Button_Selected();
+
         // Hide mouse cursor.
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        // Show the canvas background.
+        // Disable the canvas background.
         this.backgroundPane.SetActive(false);
 
-        // Show the service menu.
+        // Disable the service menu.
         this.serviceMenuContainer.SetActive(false);
+
+        // Enable settings and exit buttons
+        this.settingsButton.SetActive(true);
+        this.exitButton.SetActive(true);
+
+        // Unset the currently selected resource/service.
+        this.currentResource = null;
 
         // Change player control mode.
         InputManager.Instance.TogglePlayerInputActionMap("Player");
@@ -233,14 +287,18 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
                 {
                     // Set the first item in the list as selected.
                     EventSystem.current.SetSelectedGameObject(serviceButton);
-
-                    // Set current selection.
                     this.selectedServiceButton = serviceButton;
+
+                    // Highlight only this button.
+                    this.selectedServiceButton.GetComponent<ControlHandler>().OnSelect(null);
 
                     first = false;
                 }
             }
         }
+
+        // Unset the currently selected resource.
+        this.currentResource = null;
 
         // Disable the category list.
         this.categoryContainer.SetActive(false);
@@ -298,6 +356,12 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
             {
                 // Set the first item in the list as selected.
                 EventSystem.current.SetSelectedGameObject(resourceButton);
+                
+                // Highlight only this button.
+                resourceButton.GetComponent<ControlHandler>().OnSelect(null);
+
+                // Call resource detail handler.
+                this.OnResourceSelectedEvent(resource);
 
                 first = false;
             }
@@ -331,11 +395,20 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
         this.categoryBackButton.SetActive(false);
         this.serviceBackButton.SetActive(false);
 
+        // Disable the create button
+        this.createResourceButton.SetActive(false);
+
+        // Unset the currently selected resource.
+        this.currentResource = null;
+
         // Enable the category list.
         this.categoryContainer.SetActive(true);
 
         // Change focus to the previously selected item in the category list.
         EventSystem.current.SetSelectedGameObject(this.selectedCategoryButton);
+
+        // Highlight only this button.
+        this.selectedCategoryButton.GetComponent<ControlHandler>().OnSelect(null);
     }
 
     /// <summary>
@@ -353,11 +426,20 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
         // Disable the back button.
         this.serviceBackButton.SetActive(false);
 
+        // Unset the currently selected resource.
+        this.currentResource = null;
+
         // Enable the service list.
         this.serviceContainer.SetActive(true);
 
+        // Disable the create button.
+        this.createResourceButton.SetActive(false);
+
         // Change focus to the previously selected item in the service list.
         EventSystem.current.SetSelectedGameObject(this.selectedServiceButton);
+        
+        // Highlight only this button.
+        this.selectedServiceButton.GetComponent<ControlHandler>().OnSelect(null);
     }
 
     /// <summary>
@@ -368,6 +450,11 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
     /// </param>
     public void OnResourceSelectedEvent(ResourceSO resource)
     {
+        if (resource == this.currentResource)
+        {
+            return;
+        }
+
         // Remove any previous spinning model.
         foreach (Transform child in this.resourceModelContainer.transform)
         {
@@ -392,8 +479,37 @@ public class SimulationMenuManager : Singleton<SimulationMenuManager>
         // Update the text box with the details about the service.
         this.resourceDescription.text = resource.Description;
 
+        // Set the currently selected resource.
+        this.currentResource = resource;
+
+        // Enable the create button
+        this.createResourceButton.SetActive(true);
+
         // Done setup, show the menu.
         this.resourceDetailContainer.SetActive(true);
+    }
+
+    /// <summary>
+    /// Player is creating an instance of a resource.
+    /// From here, they will configure and launch it.
+    /// </summary>
+    /// <param name="eventData">
+    /// Button event data.
+    /// </param>
+    public void OnCreateResourceEvent()
+    {
+        if (this.currentResource != null)
+        {
+            // Call the event handler for resource creation.
+            AWSBroker.Call_AWS_OnCreateResourceEvent(this.currentResource);
+
+            // Close the menu.
+            this.OnCloseServiceMenuEvent(new InputAction.CallbackContext());
+        }
+        else
+        {
+            Debug.LogError("Failed resource instance creation not implemented yet.");
+        }
     }
     #endregion
 }

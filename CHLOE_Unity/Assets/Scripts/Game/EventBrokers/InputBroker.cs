@@ -44,5 +44,11 @@ public class InputBroker : Singleton<InputBroker>
     {
         Input_OnCloseServiceMenuEvent?.Invoke(context);
     }
+
+    public static event Action Input_OnCreateResourceEvent;
+    public static void Call_Input_OnCreateResourceEvent()
+    {
+        Input_OnCreateResourceEvent?.Invoke();
+    }
     #endregion
 }

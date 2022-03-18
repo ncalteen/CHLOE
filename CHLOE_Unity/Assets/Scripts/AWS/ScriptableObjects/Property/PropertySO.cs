@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 
 /// <summary>
 /// Defines the core properties of an AWS service.
@@ -32,7 +33,7 @@ public class PropertySO : ScriptableObject
     public UpdateTypes UpdateType;
 
     /// <summary>
-    /// Only used when the property type is SELECT_FROM_LIST, EDITABLE_LIST_SINGLE
+    /// Only used when the property type is SELECT_ONE, SELECT_MANY
     /// </summary>
     private ListSource ListSource;
 
@@ -42,6 +43,18 @@ public class PropertySO : ScriptableObject
     private NestedSource NestedSource;
     #endregion
 
+    #region Helper Methods
+    public ListSource GetListSource()
+    {
+        return this.ListSource;
+    }
+
+    public NestedSource GetNestedSource()
+    {
+        return this.NestedSource;
+    }
+    #endregion
+
     #region Unity Editor
     /// <summary>
     /// Disables the list source input when other input options are selected.
@@ -49,8 +62,7 @@ public class PropertySO : ScriptableObject
     public void OnPropertyTypeChange()
     {
         // Any of the following types support a list of values.
-        bool disableListSource = this.PropertyType != PropertyTypes.SELECT_ONE 
-            && this.PropertyType != PropertyTypes.SELECT_MANY;
+        bool disableListSource = this.PropertyType != PropertyTypes.SELECT_ONE && this.PropertyType != PropertyTypes.SELECT_MANY;
 
         using (new EditorGUI.DisabledScope(disableListSource))
         {

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Amazon.S3;
+using System;
 
 /// <summary>
 /// S3 Bucket canned ACL data type.
@@ -10,6 +11,11 @@ using Amazon.S3;
 [System.Serializable]
 public class S3CannedACLs : ListSource, IListProperty<S3CannedACL>
 {
+    public override Type ItemType()
+    {
+        return typeof(S3CannedACL);
+    }
+
     public List<S3CannedACL> Items()
     {
         return new List<S3CannedACL>()
@@ -33,13 +39,17 @@ public class S3CannedACLs : ListSource, IListProperty<S3CannedACL>
 
     public List<string> Options()
     {
-        List<string> items = new List<string>();
-
-        foreach (S3CannedACL item in Items())
+        return new List<string>()
         {
-            items.Add(item.ToString());
-        }
-
-        return items;
+            S3CannedACL.AuthenticatedRead,
+            S3CannedACL.AWSExecRead,
+            S3CannedACL.BucketOwnerFullControl,
+            S3CannedACL.BucketOwnerRead,
+            S3CannedACL.LogDeliveryWrite,
+            S3CannedACL.NoACL,
+            S3CannedACL.Private,
+            S3CannedACL.PublicRead,
+            S3CannedACL.PublicReadWrite
+        };
     }
 }

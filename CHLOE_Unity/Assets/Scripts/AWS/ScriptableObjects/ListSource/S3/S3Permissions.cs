@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Amazon.S3;
+using System;
 
 /// <summary>
 /// S3 grant permissions data type
@@ -10,6 +11,11 @@ using Amazon.S3;
 [System.Serializable]
 public class S3Permissions : ListSource, IListProperty<S3Permission>
 {
+    public override Type ItemType()
+    {
+        return typeof(S3Permission);
+    }
+
     public List<S3Permission> Items()
     {
         return new List<S3Permission>()
@@ -30,13 +36,14 @@ public class S3Permissions : ListSource, IListProperty<S3Permission>
 
     public List<string> Options()
     {
-        List<string> items = new List<string>();
-
-        foreach (S3Permission item in Items())
+        return new List<string>()
         {
-            items.Add(item.ToString());
-        }
-
-        return items;
+            S3Permission.FULL_CONTROL,
+            S3Permission.READ,
+            S3Permission.READ_ACP,
+            S3Permission.RESTORE_OBJECT,
+            S3Permission.WRITE,
+            S3Permission.WRITE_ACP
+        };
     }
 }

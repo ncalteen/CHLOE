@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class AWSManager : Singleton<AWSManager>
+public class AWSCredentialManager : Singleton<AWSCredentialManager>
 {
     #region Variables
     /// <summary>

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Amazon.S3;
+using System;
 
 /// <summary>
 /// S3 grant complex data type.
@@ -13,6 +14,11 @@ public class S3Grant : NestedSource, INestedProperty
     public PropertySO Grantee;
     public PropertySO GranteeType;
     public PropertySO Permissions;
+
+    public override Type ItemType()
+    {
+        return typeof(List<PropertySO>);
+    }
 
     public List<PropertySO> Properties()
     {

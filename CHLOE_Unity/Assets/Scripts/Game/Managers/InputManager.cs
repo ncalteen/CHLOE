@@ -87,6 +87,22 @@ public class InputManager : Singleton<InputManager>
 			InputBroker.Call_Input_OnCloseServiceMenuEvent(context);
 		}
 	}
+
+	/// <summary>
+	/// Player chooses a resource to create.
+	/// Next step is to configure and launch.
+	/// </summary>
+	/// <param name="context">
+	///	Input context.
+	/// </param>
+	public void OnCreateResourceEvent(InputAction.CallbackContext context)
+	{
+		// Only open when action is initiated.
+		if (context.phase == InputActionPhase.Started)
+		{
+			InputBroker.Call_Input_OnCreateResourceEvent();
+		}
+	}
 	#endregion
 
 	#region Input System Management

@@ -20,3 +20,5 @@ MonoBehaviour:
   Required: 1
   PropertyType: 3
   UpdateType: 0
+  ListSource: {fileID: 11400000, guid: 052b77d3fb1257440934f9bf6cfb1eef, type: 2}
+  NestedSource: {fileID: 0}

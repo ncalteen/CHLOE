@@ -35,12 +35,12 @@ public class ResourceSO : ScriptableObject
     /// <summary>
     /// The service this resource belongs to.
     /// </summary>
-    public ServiceSO ServiceInstance;
+    public ServiceSO Service;
 
     /// <summary>
     /// The properties that define this resource.
     /// </summary>
-    public List<PropertySO> PropertyInstances;
+    public List<PropertySO> Properties;
 
     /// <summary>
     /// The prefab to instantiate.
